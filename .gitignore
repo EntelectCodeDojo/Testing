@@ -181,3 +181,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+*.userprefs
+NUnitCheatSheet/NUnitCheatSheet/test-results/*
