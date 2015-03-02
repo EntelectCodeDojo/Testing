@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{543B14C7-B8EF-4CC3-8E22-2BC380326C0A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZLand</RootNamespace>
+    <AssemblyName>ZLand</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\DisplayOnUIException.cs" />
+    <Compile Include="Actions\GameAction.cs" />
+    <Compile Include="Actions\MeleAttack.cs" />
+    <Compile Include="Actions\Move.cs" />
+    <Compile Include="Actions\OtherCellAction.cs" />
+    <Compile Include="Actions\Reload.cs" />
+    <Compile Include="Actions\SameCellAction.cs" />
+    <Compile Include="Actors\Stats.cs" />
+    <Compile Include="DamageTypes\BluntForce.cs" />
+    <Compile Include="DamageTypes\DamageType.cs" />
+    <Compile Include="Items\ActionableItem.cs" />
+    <Compile Include="Actors\Actor.cs" />
+    <Compile Include="Items\Armor\Armor.cs" />
+    <Compile Include="Actions\Attack.cs" />
+    <Compile Include="Items\Weapons\Crowbar.cs" />
+    <Compile Include="Items\Weapons\OneHandedWeapon.cs" />
+    <Compile Include="Items\Weapons\Weapon.cs" />
+    <Compile Include="World\Cell.cs" />
+    <Compile Include="Actors\Civilian.cs" />
+    <Compile Include="World\Grid.cs" />
+    <Compile Include="Actors\Health.cs" />
+    <Compile Include="Actors\Human.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Actions\NotEnoughActionPointsException.cs" />
+    <Compile Include="Actions\NotInRangeException.cs" />
+    <Compile Include="Actors\Shambler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actors\Solider.cs" />
+    <Compile Include="World\Terrain.cs" />
+    <Compile Include="Items\Weapons\WeaponUsageResult.cs" />
+    <Compile Include="World\Game.cs" />
+    <Compile Include="Actors\Zombie.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
