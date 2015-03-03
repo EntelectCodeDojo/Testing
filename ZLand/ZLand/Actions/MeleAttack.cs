@@ -13,14 +13,11 @@ namespace ZLand.Actions
 
         public override void Perform(Actor initiatingActor, Cell targetCell)
         {
-            EnsureInRange(initiatingActor, targetCell);
-            EnsureHasEnoughPoints(initiatingActor, Cost);
-            SpendPointsOnAction(initiatingActor, Cost);
-        }
-
-        private void SpendPointsOnAction(Actor initiatingActor, int cost)
-        {
-            throw new System.NotImplementedException();
+            if (targetCell.Actor != null)
+            {
+                var attackResult = CalculateAttackResult(initiatingActor, targetCell);
+                targetCell.Actor.TakeDamageFromAttack(attackResult);
+            }
         }
     }
 }

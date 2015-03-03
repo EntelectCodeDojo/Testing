@@ -32,22 +32,51 @@ namespace ZLand.Actors
             return allActions;
         }
 
-        public virtual void PerformAction(SameCellAction action)
+        protected void EnsureHasEnoughPoints(GameAction action)
         {
             if (CurrentActionPoints < action.Cost)
             {
                 throw new NotEnoughActionPointsException();
             }
+        }
+
+        protected virtual void EnsureInRange(OtherCellAction action, Cell targetCell)
+        {
+            if (!IsInRange(action, targetCell))
+            {
+                throw new NotInRangeException();
+            }
+        }
+
+        public virtual bool IsInRange(OtherCellAction action, Cell targetCell)
+        {
+            var distance = CurrentPosition.DistanceTo(targetCell);
+            return distance <= action.Range;
+        }
+
+        protected void SpendPoints(GameAction action)
+        {
+            EnsureHasEnoughPoints(action);
+            CurrentActionPoints -= action.Cost;
+        }
+
+
+        public virtual void PerformAction(SameCellAction action)
+        {
+            SpendPoints(action);
             action.Perform(this);
         }
 
         public virtual void PerformAction(OtherCellAction action, Cell targetCell)
         {
-            if (CurrentActionPoints < action.Cost)
-            {
-                throw new NotEnoughActionPointsException();
-            }
+            EnsureInRange(action, targetCell);
+            SpendPoints(action);
             action.Perform(this, targetCell);
+        }
+
+        public virtual void TakeDamageFromAttack(AttackResult attackResult)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

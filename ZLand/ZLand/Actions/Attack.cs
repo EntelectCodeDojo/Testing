@@ -1,4 +1,7 @@
-﻿using ZLand.DamageTypes;
+﻿using System;
+using ZLand.Actors;
+using ZLand.DamageTypes;
+using ZLand.World;
 
 namespace ZLand.Actions
 {
@@ -19,5 +22,20 @@ namespace ZLand.Actions
         public DamageType DamageType { get; set; }
         public double CriticalHitChance { get; set; }
         public double CriticalMissChance { get; set; }
+
+        protected AttackResult CalculateAttackResult(Actor actor, Cell targetCell)
+        {
+            var random = new Random();
+            var range = MaxDamage - MinDamage;
+            var calculatedDamage = random.NextDouble()*range + MinDamage;
+            return new AttackResult
+            {
+                CalculatedDamage = calculatedDamage,
+                CriticalFailure = false, //todo
+                CriticalHit = false, //todo
+                DamageType = DamageType,
+                HitPercentage = 100, //todo
+            };
+        }
     }
 }
