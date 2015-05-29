@@ -1,0 +1,5 @@
+- http://artofunittesting.com/definition-of-a-unit-test/
+- http://martinfowler.com/bliki/UnitTest.html
+- http://blog.stevensanderson.com/2009/08/24/writing-great-unit-tests-best-and-worst-practises/
+- http://stackoverflow.com/questions/4904096/whats-the-difference-between-unit-functional-acceptance-and-integration-test
+- https://lukewickstead.wordpress.com/2013/01/16/nunit-cheat-sheet/
